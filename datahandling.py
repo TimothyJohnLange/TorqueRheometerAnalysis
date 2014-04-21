@@ -29,3 +29,18 @@ class DataFile:
         torque = self.data['M [Nm]'].values
 
         return time, temp, torque
+
+def cuts(vector):
+    l = len(vector)
+    vec_1 = vector[:l/2]
+    vec_2 = vector[l/2:]
+    cut_2 = l
+    vector = list(vector)
+    cut_1 = vector.index(max(vec_1))
+    for j in range(l/2, l):
+        if vector[j] > (max(vec_2) - 2) and cut_2 == l:
+            cut_2 = j
+    return cut_1, cut_2
+
+def trim(vector, cut):
+    return vector[cut[0]:cut[1]]

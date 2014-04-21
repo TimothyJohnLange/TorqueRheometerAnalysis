@@ -17,7 +17,7 @@ def parameters():
                (       'mu_0',  0.03, True,  0.0, None),
                (          'E',6500.0, True,  0.0, None),
                (          'q',   2.5, True,  0.0, None),
-               ('prim_stab_0',   0.7, True,  0.0, None))
+               ('prim_stab_0',   0.7, True,  0.0,  1.0))
     return p
 
 def unpack_parameters(p):
