@@ -39,3 +39,43 @@ def unpack_parameters(p):
     q = p['q'].value
     prim_stab_0 = p['prim_stab_0'].value
     return k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0
+
+def parameter_vectors(all_ps):
+    from numpy import append
+    k1_all = []
+    k2_all = []
+    k3_all = []
+    k4_all = []
+    k5_all = []
+    k6_all = []
+    k7_all = []
+    k8_all = []
+    k9_all = []
+    k10_all = []
+    k11_all = []
+    UA_all = []
+    mu_0_all = []
+    q_all = []
+    prim_stab_0_all = []
+    
+    for j in range(len(all_ps)):
+        para = unpack_parameters(all_ps[j])
+        k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0 = para
+    
+        k1_all = append(k1_all, k1)
+        k2_all = append(k2_all, k2)
+        k3_all = append(k3_all, k3)
+        k4_all = append(k4_all, k4)
+        k5_all = append(k5_all, k5)
+        k6_all = append(k6_all, k6)
+        k7_all = append(k7_all, k7)
+        k8_all = append(k8_all, k8)
+        k9_all = append(k9_all, k9)
+        k10_all = append(k10_all, k10)
+        k11_all = append(k11_all, k11)
+        UA_all = append(UA_all, UA)
+        mu_0_all = append(mu_0_all, mu_0)
+        q_all = append(q_all, q)
+        prim_stab_0_all = append(prim_stab_0_all, prim_stab_0)
+
+    return k1_all, k2_all, k3_all, k4_all, k5_all, k6_all, k7_all, k8_all, k9_all, k10_all, k11_all, UA_all, mu_0_all, q_all, prim_stab_0_all
