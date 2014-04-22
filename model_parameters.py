@@ -1,5 +1,5 @@
 def parameters():
-    from scipy.optimize.lmfit import Parameters
+    from lmfit import Parameters
     p = Parameters()
     #          (         Name, Value, Vary,  Min,  Max)    
     p.add_many((         'k1',   2.0, True,  0.0, None),
