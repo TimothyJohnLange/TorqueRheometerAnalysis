@@ -90,3 +90,7 @@ def temp_curve(p, time):
 def fcn2min_torque(p, time, data):
     model = torque_curve(p, time)
     return model - data
+	
+def fcn2min_temp(p, time, data):
+    model = temp_curve(p, time)
+    return model - data

@@ -42,5 +42,9 @@ def cuts(vector):
             cut_2 = j
     return cut_1, cut_2
 
+def half_cuts(vector):
+    l = len(vector)
+    return 0, l/4
+	
 def trim(vector, cut):
     return vector[cut[0]:cut[1]]
