@@ -20,16 +20,14 @@ def model_curves(p, time):
     
     #unpack parameter values from parameter structure
     para = unpack_parameters(p)
-    k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0 = para
+    k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0, LDH_0 = para
    
     # temperature curve parameters
     R = 8.314
     	
     # initial concentrations
     HCl_0 = 0.
-    LDH_0 = 0.3
     poly_act_0 = 5.
-    #prim_stab_0 = 0.5
     
     # initial temperatures
     T_0 = 125.

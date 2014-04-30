@@ -21,7 +21,7 @@ def parameters_1():
     return p
 
 # This set of parameters works the best so far
-def parameters():
+def parameters(LDH_0):
     from lmfit import Parameters
     p = Parameters()
     #          (         Name,  Value,  Vary,    Min,   Max)    
@@ -40,7 +40,8 @@ def parameters():
                (       'mu_0',   0.03,  True,    0.0,  None),
                (          'E', 6500.0,  True,    0.0,  None),
                (          'q',    2.5,  True,    0.0,  48.0),
-               ('prim_stab_0',    0.7,  True,    0.0,   1.0))
+               ('prim_stab_0',    0.7,  True,    0.0,   1.0),
+               (      'LDH_0',  LDH_0, False,   None,  None))
     return p
 	
 def parameters_for_temp():
@@ -83,7 +84,8 @@ def unpack_parameters(p):
     E = p['E'].value
     q = p['q'].value
     prim_stab_0 = p['prim_stab_0'].value
-    return k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0
+    LDH_0 = p['LDH_0'].value
+    return k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0, LDH_0
 
 def parameter_vectors(all_ps):
     from numpy import append
@@ -103,10 +105,11 @@ def parameter_vectors(all_ps):
     E_all = []
     q_all = []
     prim_stab_0_all = []
+    LDH_0_all = []
     
     for j in range(len(all_ps)):
         para = unpack_parameters(all_ps[j])
-        k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0 = para
+        k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, UA, mu_0, E, q, prim_stab_0, LDH_0 = para
     
         k1_all = append(k1_all, k1)
         k2_all = append(k2_all, k2)
@@ -124,5 +127,6 @@ def parameter_vectors(all_ps):
         E_all = append(E_all, E)
         q_all = append(q_all, q)
         prim_stab_0_all = append(prim_stab_0_all, prim_stab_0)
+        LDH_0_all = append(LDH_0_all, LDH_0)
 
-    return k1_all, k2_all, k3_all, k4_all, k5_all, k6_all, k7_all, k8_all, k9_all, k10_all, k11_all, UA_all, mu_0_all, E_all, q_all, prim_stab_0_all
+    return k1_all, k2_all, k3_all, k4_all, k5_all, k6_all, k7_all, k8_all, k9_all, k10_all, k11_all, UA_all, mu_0_all, E_all, q_all, prim_stab_0_all, LDH_0_all
