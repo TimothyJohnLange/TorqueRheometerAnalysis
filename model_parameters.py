@@ -25,22 +25,22 @@ def parameters():
     from lmfit import Parameters
     p = Parameters()
     #          (         Name,  Value,  Vary,    Min,   Max)    
-    p.add_many((         'k1',      2,  True,    0.0,  None),
+    p.add_many((         'k1',      2,  True,    0.0, 12.85),
                (         'k2',    5.0,  True,    0.0,  None),
-               (         'k3',   0.35,  True,    0.0,  None),
-               (         'k4',    0.3,  True,    0.0,  None),
-               (         'k5',  0.001,  True,    0.0,  None),
-               (         'k6',    1.0,  True,    0.0,  None),
-               (         'k7',    0.1,  True,    0.0,  None),
-               (         'k8',   0.05,  True,    0.0,  None),
-               (         'k9',    2.0,  True,    0.0,  None),
-               (        'k10',    2.0,  True,    0.0,  None),
-               (        'k11',    1.0,  True,    0.0,  None),
+               (         'k3',   0.35,  True,    0.0,  6.83),
+               (         'k4',    0.3,  True,    0.0,  3.57),
+               (         'k5',  0.001,  True,    0.0,  0.66),
+               (         'k6',    1.0,  True,    0.0,  49.3),
+               (         'k7',    0.1,  True,    0.0,  18.9),
+               (         'k8',   0.05,  True,    0.0,  12.2),
+               (         'k9',    2.0,  True,    0.0,  35.5),
+               (        'k10',    2.0,  True,    0.0,  8.79),
+               (        'k11',    1.0,  True,    0.0,  26.5),
                (         'UA',  340.0,  True,    0.0,  None),
                (       'mu_0',   0.03,  True,    0.0,  None),
                (          'E', 6500.0,  True,    0.0,  None),
-               (          'q',    2.5,  True,    0.0,  None),
-               ('prim_stab_0',    0.7,  True,    0.0,  None))
+               (          'q',    2.5,  True,    0.0,  48.0),
+               ('prim_stab_0',    0.7,  True,    0.0,   1.0))
     return p
 	
 def parameters_for_temp():

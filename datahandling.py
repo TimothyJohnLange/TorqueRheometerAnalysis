@@ -48,3 +48,22 @@ def half_cuts(vector):
 	
 def trim(vector, cut):
     return vector[cut[0]:cut[1]]
+
+def file_parse(f):
+    from os import path
+    
+    direct, filename = path.split(f)
+    LDH_0, no_use, LDH_type = filename.split('_')
+    LDH_type, file_type = LDH_type.split('.')
+    
+    if LDH_0[0] == '0':
+        LDH_0 = float('0.'.join(LDH_0.split('0')))
+    else:
+        LDH_0 = float(LDH_0)
+    
+    rem_nos = ['1', '2', '3', '4', '5', '6']
+    for rem in rem_nos:
+        if LDH_type.find(rem) != -1:
+            LDH_type, no_use = LDH_type.split(LDH_type[LDH_type.find(rem)])
+
+    return LDH_0, LDH_type 
