@@ -1,25 +1,3 @@
-def parameters_1():
-    from lmfit import Parameters
-    p = Parameters()
-    #          (         Name,  Value,  Vary,    Min,   Max)    
-    p.add_many((         'k1',  2.236,  True,    0.0, 12.85),
-               (         'k2', 21.287,  True,   7.14, 36.51),
-               (         'k3',   1.28,  True,    0.0,  6.83),
-               (         'k4',  0.769,  True,    0.0,  3.57),
-               (         'k5', 0.0135,  True,    0.0,  0.66),
-               (         'k6', 11.454,  True,    0.0,  49.3),
-               (         'k7',  0.377,  True,    0.0,  18.9),
-               (         'k8',  0.184,  True,    0.0,  12.2),
-               (         'k9',  4.605,  True,    0.0,  35.5),
-               (        'k10',  2.089,  True,    0.0,   8.8),
-               (        'k11',  4.063,  True,    0.0,  26.5),
-               (         'UA', 283.57,  True,  152.9, 430.5),
-               (       'mu_0', 0.0049,  True,    0.0, 0.033),
-               (          'E', 8641.5,  True, 5593.0,  None),
-               (          'q',  5.537,  True,    0.0,    48),
-               ('prim_stab_0',    0.7,  True,    0.0,   1.0))
-    return p
-
 # This set of parameters works the best so far
 def parameters(LDH_0):
     from lmfit import Parameters
@@ -44,28 +22,6 @@ def parameters(LDH_0):
                (      'LDH_0',  LDH_0, False,   None,  None))
     return p
 	
-def parameters_for_temp():
-    from lmfit import Parameters
-    p = Parameters()
-    #          (         Name,  Value,  Vary,    Min,   Max)    
-    p.add_many((         'k1',  2.236, False,    0.0, 12.85),
-               (         'k2', 21.287, False,   7.14, 36.51),
-               (         'k3',    0.0, False,    0.0,  6.83),
-               (         'k4',    0.0, False,    0.0,  3.57),
-               (         'k5',    0.0, False,    0.0,  0.66),
-               (         'k6',    0.0, False,    0.0,  49.3),
-               (         'k7',    0.0, False,    0.0,  18.9),
-               (         'k8',    0.0, False,    0.0,  12.2),
-               (         'k9',    0.0, False,    0.0,  35.5),
-               (        'k10',    0.0, False,    0.0,   8.8),
-               (        'k11',  4.063, False,    0.0,  26.5),
-               (         'UA', 283.57, False,  152.9, 430.5),
-               (       'mu_0',   0.03,  True,    0.0, 0.033),
-               (          'E', 6500.0,  True, 5593.0,  None),
-               (          'q',    0.0, False,    0.0,  48.0),
-               ('prim_stab_0',    0.0, False,    0.0,   1.0))
-    return p
-
 def unpack_parameters(p):
     #unpack parameter values from parameter structure
     k1 = p['k1'].value
