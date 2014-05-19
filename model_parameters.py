@@ -2,24 +2,24 @@
 def parameters(LDH_0):
     from lmfit import Parameters
     p = Parameters()
-    #          (         Name,  Value,  Vary,    Min,   Max)    
-    p.add_many((         'k1',      2,  True,    0.0, 12.85),
-               (         'k2',    5.0,  True,    0.0,  None),
-               (         'k3',   0.35,  True,    0.0,  6.83),
-               (         'k4',    0.3,  True,    0.0,  3.57),
-               (         'k5',  0.001,  True,    0.0,  0.66),
-               (         'k6',    1.0,  True,    0.0,  49.3),
-               (         'k7',    0.1,  True,    0.0,  18.9),
-               (         'k8',   0.05,  True,    0.0,  12.2),
-               (         'k9',    2.0,  True,    0.0,  35.5),
-               (        'k10',    2.0,  True,    0.0,  8.79),
-               (        'k11',    1.0,  True,    0.0,  26.5),
-               (         'UA',  340.0,  True,    0.0,  None),
-               (       'mu_0',   0.03,  True,    0.0,  None),
-               (          'E', 6500.0,  True,    0.0,  None),
-               (          'q',    2.5,  True,    0.0,  48.0),
-               ('prim_stab_0',    0.7,  True,    0.0,   1.0),
-               (      'LDH_0',  LDH_0, False,   None,  None))
+    #          (         Name,  Value,  Vary,    Min,     Max)    
+    p.add_many((         'k1',      2,  True,    0.0,     2.8),
+               (         'k2',    5.0,  True,    0.0, 20000.0),
+               (         'k3',   0.35,  True,    0.0,    6.83),
+               (         'k4',    0.3,  True,    0.0,     2.0),
+               (         'k5',  0.001,  True,    0.0,    0.05),
+               (         'k6',    1.0,  True,    0.0,    30.0),
+               (         'k7',    0.1,  True,    0.0,     4.0),
+               (         'k8',    0.0, False,    0.0,    10.0),
+               (         'k9',    2.0,  True,    0.0,    14.0),
+               (        'k10',    2.0,  True,    0.5,    8.79),
+               (        'k11',    1.0,  True,    0.0,     8.0),
+               (         'UA',  340.0,  True,  100.0,   400.0),
+               (       'mu_0',   0.03,  True,    0.0,     0.1),
+               (          'E', 6500.0,  True, 5000.0,    None),
+               (          'q',    7.0, False,    0.0,    17.0),
+               ('prim_stab_0',    0.7,  True,    0.5,     1.0),
+               (      'LDH_0',  LDH_0, False,   None,    None))
     return p
 	
 def unpack_parameters(p):
