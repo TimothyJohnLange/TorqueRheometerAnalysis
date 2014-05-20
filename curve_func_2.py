@@ -92,3 +92,25 @@ def fcn2min_torque(p, time, data):
 def fcn2min_temp(p, time, data):
     model = temp_curve(p, time)
     return model - data
+
+def fcn2min(p, time, data):
+    model = joined_curves(torque_curve(p, time), temp_curve(p, time))
+    return model - data
+	
+def joined_curves(torque, temp):
+    from numpy import append
+    t_list = list(torque)
+    T_list = list(temp)
+    
+    t_norm = num_range_equal(t_list, 4.3, 2.824)
+    T_norm = num_range_equal(T_list, 204.57, 9.347)
+    
+    return append(t_norm, T_norm)
+
+def num_range_equal(list, m, s):
+    nre_list = []
+    for i in list:
+        nre_val = (i - m)/s
+        nre_list.append(nre_val)
+
+    return nre_list		
