@@ -6,18 +6,18 @@ def parameters(ini_values):
 	
     p = Parameters()
     #          (         Name,       Value,  Vary,    Min,     Max)    
-    p.add_many((         'k1',          k1,  True,    0.0,     2.8),
-               (         'k2',          k2,  True,    0.0, 20000.0),
-               (         'k3',          k3,  True,    0.0,    6.83),
-               (         'k4',          k4,  True,    0.0,     2.0),
-               (         'k5',          k5,  True,    0.0,    0.05),
-               (         'k6',          k6,  True,    0.0,    30.0),
-               (         'k7',          k7,  True,    0.0,     4.0),
-               (         'k8',          k8,  True,    0.0,    10.0),
-               (         'k9',          k9,  True,    0.0,    14.0),
-               (        'k10',         k10,  True,    0.5,    8.79),
-               (        'k11',         k11,  True,    0.0,     8.0),
-               (         'UA',          UA,  True,  100.0,   400.0),
+    p.add_many((         'k1',          k1,  True,    1.6,     2.1),
+               (         'k2',          k2,  True,    8.0,    46.0),
+               (         'k3',          k3,  True,    0.0,     6.0),
+               (         'k4',          k4,  True,    0.0,     2.1),
+               (         'k5',          k5,  True,    0.0,    0.03),
+               (         'k6',          k6,  True,    0.0,    39.0),
+               (         'k7',          k7,  True,    0.0,     2.7),
+               (         'k8',          k8,  True,    0.0,     7.9),
+               (         'k9',          k9,  True,    0.0,    13.1),
+               (        'k10',         k10,  True,    0.7,    10.9),
+               (        'k11',         k11,  True,    2.0,     3.6),
+               (         'UA',          UA,  True,  275.0,   402.0),
                (       'mu_0',        mu_0, False,    0.0,     0.1),
                (          'E',           E, False, 5000.0,    None),
                (          'q',           q, False,    0.0,    17.0),
@@ -93,3 +93,28 @@ def parameter_vectors(all_ps):
 def ms_var_func(val, factor):
     from random import random
     return val + random()*val*factor - val*factor/2.0
+
+def rand_ini_val(LDH_0):
+    from numpy import append
+    from random import random
+    limits = [[1.6, 2.1],
+              [8.0, 46.0],
+              [0.0, 6.0],
+              [0.0, 2.1],
+              [0.0, 0.03],
+              [0.0, 39.0], 
+              [0.0, 2.7],
+              [0.0, 7.9],
+              [0.0, 13.1],
+              [0.7, 10.9],
+              [2.0, 3.6],
+              [275.0, 402.0]]
+    
+    ini_val = []
+    for l in range(len(limits)):
+        lb = limits[l][0]
+        ub = limits[l][1]
+        new_val = lb + random()*(ub - lb)
+        ini_val.append(new_val)
+    
+    return append(ini_val, [0.0372, 6208.6, 2.5, 1.3, LDH_0])    
