@@ -6,4 +6,7 @@ These files can be used to analyse the results of tests on a compounder Gear Rhe
 Data directory
 --------------
 
-Insert the directory for the data on your machine in the config_sample.json file and change the name of the file to config.json 
+Insert the directory for the data on your machine in the config_sample.json file and change the name of the file to config.json
+
+Manual
+------ 
