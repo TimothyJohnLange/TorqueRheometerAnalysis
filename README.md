@@ -7,6 +7,3 @@ Data directory
 --------------
 
 Insert the directory for the data on your machine in the config_sample.json file and change the name of the file to config.json
-
-Manual
------- 
