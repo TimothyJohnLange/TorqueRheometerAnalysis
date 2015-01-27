@@ -15,5 +15,5 @@ def r4(k6, radical, prim_stab):
 def r5(k7, radical):
     return k7*radical
 
-def r6(k8, radical):
-    return k8*radical
+def r6(k8, deg_poly):
+    return k8*deg_poly
