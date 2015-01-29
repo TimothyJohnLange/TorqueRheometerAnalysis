@@ -9,7 +9,7 @@ def stoyk():
 				  [1., 0., -1., 1., 0., 0., 0.],
 				  [0., 0., 0., -1., -1., 0., 0.],
 				  [0., 0., 0., -1., 0., 1., 0.],
-				  [0., 0., 0., -2., 0., 0., 1.]])
+				  [0., 0., 0., 0., 0., -2., 1.]])
 
 # Function accepting parameters to give the modelled curves
 
@@ -46,7 +46,7 @@ def model_curves(p, time):
 				   r3(k5, poly_act),
 				   r4(k6, radical, prim_stab),
 				   r5(k7, radical), 
-				   r6(k8, radical)])
+				   r6(k8, deg_poly)])
         return append(squeeze(stoyk().T.dot(r)),
                       [dTdt(T, mu_0, E, UA, k9, deg_poly, k10, x_link, q, k11),
                        dTmdt(T, Tm, k2)]
